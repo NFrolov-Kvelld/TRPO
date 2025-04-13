@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
-project(TRPO)
+project(tic-tac-toe-tests)
 
-set(CMAKE_CXX_STANDARD 17)
+find_package(GTest REQUIRED)
 
-add_subdirectory(tests)
+include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(TRPO src/game.cpp)
-target_link_libraries(TRPO gtest gtest_main)
-
-install(TARGETS TRPO DESTINATION bin)
+add_executable(game_test game_test.cpp)
+target_link_libraries(game_test gtest gtest_main)
